@@ -1005,6 +1005,7 @@ MonoBehaviour:
   myHealth: 0
   touching: 0
   ps: {fileID: 0}
+  es: {fileID: 0}
   agent: {fileID: 0}
   EPSILON: 3
 --- !u!95 &457471018
@@ -1399,22 +1400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797b61843e0d8544ba00cd7d57ff6184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthCube: 40
-  damageCube: 10
-  speedCube: 3
-  costCube: 1
-  healthSphere: 30
-  damageSphere: 10
-  speedSphere: 4
-  costSphere: 5
-  healthCylinder: 200
-  damageCylinder: 15
-  speedCylinder: 2
-  costCylinder: 15
-  healthPyramid: 200
-  damagePyramid: 5
-  speedPyramid: 1
-  costPyramid: 40
   cubeHP: {fileID: 208410451}
   cubeA: {fileID: 380310510}
   cubeS: {fileID: 218272799}
@@ -1432,8 +1417,8 @@ MonoBehaviour:
   cylinderC: {fileID: 1797218250}
   pyramidC: {fileID: 952421778}
   currencyText: {fileID: 487066046}
-  bank: 0
-  Ebank: 0
+  ps: {fileID: 2097176645}
+  es: {fileID: 1353628661}
 --- !u!4 &599532576
 Transform:
   m_ObjectHideFlags: 0
@@ -1705,17 +1690,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 704716878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a94c43e5ba93e64d825c16f6e1bf5ee, type: 3}
+  m_Script: {fileID: 11500000, guid: f533134c79e88c34f9f2be5724f7d9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character:
+  enemyCharacter:
   - {fileID: 1683742589977434, guid: 5827031b818b04644a9cebc37ff3cc72, type: 2}
   - {fileID: 1975243026985466, guid: 3f0525eabd4d7a74fac516bc3ce628e2, type: 2}
   - {fileID: 1246042248014256, guid: 9c12cd2df7d4a5f4c84f855d3e25e880, type: 2}
   - {fileID: 1695927893773150, guid: 94d862a57b424d044b6d7318f81d2250, type: 2}
-  spawnValues: {x: 2, y: 1, z: 1}
+  spawnValues: {x: 0, y: 0, z: 0}
   gc: {fileID: 599532575}
-  ps: {fileID: 0}
+  ps: {fileID: 2097176645}
+  es: {fileID: 1353628661}
+  numToSpawn: 0
+  pause: 0
+  rand: 0
 --- !u!1 &892392528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,7 +1794,7 @@ MonoBehaviour:
   - {fileID: 1508934721116832, guid: 5c0d6bbc1116cdc4cb461c24cd614402, type: 2}
   spawnValues: {x: 2, y: 1, z: 1}
   gc: {fileID: 599532575}
-  ps: {fileID: 0}
+  ps: {fileID: 2097176645}
 --- !u!1 &937921207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,19 +2544,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a6320f043b634ebe8176386134405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ebank: 0
   healthCube: 40
   damageCube: 10
   speedCube: 3
   costCube: 2
   healthSphere: 30
-  damageSphere: 10
-  speedSphere: 4
-  costSphere: 5
+  damageSphere: 5
+  speedSphere: 3
+  costSphere: 10
   healthCylinder: 200
   damageCylinder: 15
   speedCylinder: 2
-  costCylinder: 15
-  healthPyramid: 200
+  costCylinder: 20
+  healthPyramid: 400
   damagePyramid: 5
   speedPyramid: 1
   costPyramid: 40
@@ -3383,6 +3373,7 @@ MonoBehaviour:
   myHealth: 0
   touching: 0
   ps: {fileID: 0}
+  es: {fileID: 0}
   agent: {fileID: 0}
   EPSILON: 3
 --- !u!136 &1710085067
@@ -3790,19 +3781,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51aab4ebcdb87a24bbb488f4d0688122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bank: 0
   healthCube: 40
   damageCube: 10
   speedCube: 3
   costCube: 2
   healthSphere: 30
-  damageSphere: 10
-  speedSphere: 4
-  costSphere: 5
+  damageSphere: 5
+  speedSphere: 3
+  costSphere: 10
   healthCylinder: 200
   damageCylinder: 15
   speedCylinder: 2
-  costCylinder: 15
-  healthPyramid: 200
+  costCylinder: 20
+  healthPyramid: 400
   damagePyramid: 5
   speedPyramid: 1
   costPyramid: 40
