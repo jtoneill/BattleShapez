@@ -3,33 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
-    //base stats
 
-    //Cube
-    public int healthCube = 40;
-    public int damageCube = 10;
-    public int speedCube = 3;
-    public int costCube = 1;
-
-    //Sphere
-    public int healthSphere = 30;
-    public int damageSphere = 10;
-    public int speedSphere = 4;
-    public int costSphere = 5;
-
-    //Cylinder
-    public int healthCylinder = 200;
-    public int damageCylinder = 15;
-    public int speedCylinder = 2;
-    public int costCylinder = 15;
-
-    //Pyramid
-    public int healthPyramid = 100;
-    public int damagePyramid = 40;
-    public int speedPyramid = 1;
-    public int costPyramid = 40;
 
     //references to text fields in the gui (drag and dropped)
     public Text cubeHP;
@@ -54,7 +31,11 @@ public class GameController : MonoBehaviour {
     public Text currencyText;
 
     private float timer = 0f;
-    public int bank = 0;
+
+    public PlayerStats ps;
+    public EnemyStats es;
+    
+    
 
 
 
@@ -62,6 +43,7 @@ public class GameController : MonoBehaviour {
     void Start ()
     {
         updateStats();
+        
     }
 	
 	// Update is called once per frame
@@ -79,8 +61,9 @@ public class GameController : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer > 2f)
         {
-            bank += 2;
-            currencyText.text = bank.ToString();
+            ps.bank += 2;
+            es.Ebank += 2;
+            currencyText.text = ps.bank.ToString();
             timer = 0;
         }
     }
@@ -88,7 +71,7 @@ public class GameController : MonoBehaviour {
     public void bankPurchase()
     {
         //refreshes the GUI currency amount after you make a purchase
-        currencyText.text = bank.ToString();
+        currencyText.text = ps.bank.ToString();
     }
 
 
@@ -102,37 +85,38 @@ public class GameController : MonoBehaviour {
 
     public void updateCubeStats()
     {
-        cubeHP.text = healthCube.ToString();
-        cubeA.text = damageCube.ToString();
-        cubeS.text = speedCube.ToString();
-        cubeC.text = "$" + costCube.ToString();
+        cubeHP.text = ps.healthCube.ToString();
+        cubeA.text = ps.damageCube.ToString();
+        cubeS.text = ps.speedCube.ToString();
+        cubeC.text = "$" + ps.costCube.ToString();
         print("CubeStatsUpdated");
     }
 
     public void updateSphereStats()
     {
-        sphereHP.text = healthSphere.ToString();
-        sphereA.text = damageSphere.ToString();
-        sphereS.text = speedSphere.ToString();
-        sphereC.text = "$" + costSphere.ToString();
+        sphereHP.text = ps.healthSphere.ToString();
+        sphereA.text = ps.damageSphere.ToString();
+        sphereS.text = ps.speedSphere.ToString();
+        sphereC.text = "$" + ps.costSphere.ToString();
         print("SphereStatsUpdated");
     }
 
     public void updateCylinderStats()
     {
-        cylinderHP.text = healthCylinder.ToString();
-        cylinderA.text = damageCylinder.ToString();
-        cylinderS.text = speedCylinder.ToString();
-        cylinderC.text = "$" + costCylinder.ToString();
+        cylinderHP.text = ps.healthCylinder.ToString();
+        cylinderA.text = ps.damageCylinder.ToString();
+        cylinderS.text = ps.speedCylinder.ToString();
+        cylinderC.text = "$" + ps.costCylinder.ToString();
         print("CylinderStatsUpdated");
     }
 
     public void updatePyramidStats()
     {
-        pyramidHP.text = healthPyramid.ToString();
-        pyramidA.text = damagePyramid.ToString();
-        pyramidS.text = speedPyramid.ToString();
-        pyramidC.text = "$" + costPyramid.ToString();
+        pyramidHP.text = ps.healthPyramid.ToString();
+        pyramidA.text = ps.damagePyramid.ToString();
+        pyramidS.text = ps.speedPyramid.ToString();
+        pyramidC.text = "$" + ps.costPyramid.ToString();
         print("PyramidStatsUpdated");
     }
+    
 }

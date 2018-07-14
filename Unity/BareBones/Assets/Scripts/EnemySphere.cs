@@ -8,6 +8,15 @@ public class EnemySphere : Enemy {
 	void Start ()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
+        ps = GameController.FindObjectOfType<PlayerStats>();
+        es = GameController.FindObjectOfType<EnemyStats>();
+
+
+        myHealth = es.healthSphere;
+       
+
+        
+        
     }
 	
 	// Update is called once per frame

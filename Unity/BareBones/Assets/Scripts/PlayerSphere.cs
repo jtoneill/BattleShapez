@@ -8,6 +8,14 @@ public class PlayerSphere : Player {
 	void Start ()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
+        ps = GameController.FindObjectOfType<PlayerStats>();
+        es = GameController.FindObjectOfType<EnemyStats>();
+
+        myHealth = ps.healthSphere;
+        
+
+        
+        
     }
 	
 	// Update is called once per frame

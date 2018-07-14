@@ -15,6 +15,9 @@ TagManager:
   - ECylinder
   - PPyramid
   - EPyramid
+  - GC
+  - PStats
+  - EStats
   layers:
   - Default
   - TransparentFX

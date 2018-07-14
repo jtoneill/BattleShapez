@@ -5,8 +5,10 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] character;
+    
     public Vector3 spawnValues;
     public GameController gc;
+    public PlayerStats ps;
 
     public void onCharacterPurchase(int choice)
     {
@@ -18,10 +20,10 @@ public class Spawner : MonoBehaviour
 
     public void purchaseCube()
     {
-        if(gc.bank >= gc.costCube)
+        if(ps.bank >= ps.costCube)
         {
             onCharacterPurchase(0);
-            gc.bank -= gc.costCube;
+            ps.bank -= ps.costCube;
             gc.bankPurchase();
             print("Purchased Cube");
         } else
@@ -33,10 +35,10 @@ public class Spawner : MonoBehaviour
 
     public void purchaseSphere()
     {
-        if(gc.bank >= gc.costSphere)
+        if(ps.bank >= ps.costSphere)
         {
             onCharacterPurchase(1);
-            gc.bank -= gc.costSphere;
+            ps.bank -= ps.costSphere;
             gc.bankPurchase();
             print("Purchased Sphere");
         } else
@@ -48,10 +50,10 @@ public class Spawner : MonoBehaviour
 
     public void purchaseCylinder()
     {
-        if(gc.bank >= gc.costCylinder)
+        if(ps.bank >= ps.costCylinder)
         {
             onCharacterPurchase(2);
-            gc.bank -= gc.costCylinder;
+            ps.bank -= ps.costCylinder;
             gc.bankPurchase();
             print("Purchased Cylinder");
         } else
@@ -63,10 +65,10 @@ public class Spawner : MonoBehaviour
 
     public void purchasePyramid()
     {
-        if(gc.bank >= gc.costPyramid)
+        if(ps.bank >= ps.costPyramid)
         {
             onCharacterPurchase(3);
-            gc.bank -= gc.costPyramid;
+            ps.bank -= ps.costPyramid;
             gc.bankPurchase();
             print("Purchased Pyramid");
         } else
