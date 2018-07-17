@@ -32,6 +32,9 @@ public class EnemyStats : MonoBehaviour
     public int speedPyramid = 1;
     public int costPyramid = 40;
 
+    public int enemyOrbHealth = 1000;
+
+
     // Use this for initialization
     void Start () {
 		

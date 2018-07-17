@@ -18,6 +18,16 @@ TagManager:
   - GC
   - PStats
   - EStats
+  - PauseMenu
+  - GameplayController
+  - CubeWeaponP
+  - CubeWeaponE
+  - SphereWeaponP
+  - SphereWeaponE
+  - CylinderWeaponP
+  - CylinderWeaponE
+  - PyramidWeaponP
+  - PyramidWeaponE
   layers:
   - Default
   - TransparentFX

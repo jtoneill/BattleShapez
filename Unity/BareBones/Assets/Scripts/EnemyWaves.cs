@@ -13,6 +13,9 @@ public class EnemyWaves : MonoBehaviour {
     public GameController gc;
     public PlayerStats ps;
     public EnemyStats es;
+   
+
+    public bool gamePaused;
 
     public int numToSpawn;
     public int pause;
@@ -24,6 +27,7 @@ public class EnemyWaves : MonoBehaviour {
         ps = GameController.FindObjectOfType<PlayerStats>();
         es = GameController.FindObjectOfType<EnemyStats>();
         gc = GameController.FindObjectOfType<GameController>();
+       
         StartCoroutine(Wave1());
     }
 	
@@ -183,10 +187,32 @@ public class EnemyWaves : MonoBehaviour {
         }
     }
 
+
+    public void pauseTrue()
+    {
+        gamePaused = true;
+    }
+
+    public void pauseFalse()
+    {
+        gamePaused = false;
+    }
+
+    public void PauseCheck()
+    {
+        
+    }
+
     IEnumerator Wave1()
     {
 
         print("wave1");
+
+        while (gamePaused)
+        {
+            yield return null;
+        }
+
 
         //Random number of cubes spawned (2-4)
         numToSpawn = Random.Range(2, 4);
@@ -198,6 +224,10 @@ public class EnemyWaves : MonoBehaviour {
         print(Time.time + " done");
         purchaseEnemy(0);
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = Random.Range(2, 3);
         print("numToSpawnSpheres: " + numToSpawn);
@@ -218,7 +248,11 @@ public class EnemyWaves : MonoBehaviour {
 
         print("wave2");
 
-        
+        while (gamePaused)
+        {
+            yield return null;
+        }
+
         numToSpawn = Random.Range(1, 2);
         print("numToSpawnCylinders: " + numToSpawn);
         pause = numToSpawn * 21;
@@ -229,6 +263,12 @@ public class EnemyWaves : MonoBehaviour {
         purchaseEnemy(2);
 
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
+
+
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
         pause = numToSpawn * 3;
@@ -237,6 +277,12 @@ public class EnemyWaves : MonoBehaviour {
         yield return new WaitForSecondsRealtime(pause);
         print(Time.time + " done");
         purchaseEnemy(0);
+
+
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
 
         numToSpawn = Random.Range(2, 4);
@@ -268,6 +314,11 @@ public class EnemyWaves : MonoBehaviour {
         purchaseEnemy(3);
 
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
+
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
         pause = numToSpawn * 3;
@@ -278,6 +329,11 @@ public class EnemyWaves : MonoBehaviour {
         purchaseEnemy(0);
 
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
+
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
         pause = numToSpawn * 11;
@@ -287,6 +343,11 @@ public class EnemyWaves : MonoBehaviour {
         print(Time.time + " done");
         purchaseEnemy(0);
 
+
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnSpheres: " + numToSpawn);
@@ -306,6 +367,10 @@ public class EnemyWaves : MonoBehaviour {
 
         print("wave4");
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = Random.Range(3, 5);
         print("numToSpawnCubes: " + numToSpawn);
@@ -326,6 +391,10 @@ public class EnemyWaves : MonoBehaviour {
 
         print("wave5");
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnSpheres: " + numToSpawn);
@@ -346,6 +415,10 @@ public class EnemyWaves : MonoBehaviour {
 
         print("wave6");
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = 1;
         print("numToSpawnPyramid: " + numToSpawn);
@@ -366,6 +439,10 @@ public class EnemyWaves : MonoBehaviour {
 
         print("wave7");
 
+        while (gamePaused)
+        {
+            yield return null;
+        }
 
         numToSpawn = Random.Range(1, 2); ;
         print("numToSpawnCylinder: " + numToSpawn);

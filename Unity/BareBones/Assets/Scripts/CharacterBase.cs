@@ -10,6 +10,8 @@ public class CharacterBase : MonoBehaviour
     public Transform mTarget;
     
     public int myHealth;
+    public int myAttackDamage;
+
     public bool touching;
 
     //public float mSpeed = 3.0f;
@@ -45,7 +47,7 @@ public class CharacterBase : MonoBehaviour
 
         myHealth -= hurts;
 
-     
+        print(gameObject.name + "'s HP = " + myHealth);
 
         if (myHealth <= 0)
         {
@@ -57,8 +59,12 @@ public class CharacterBase : MonoBehaviour
 
     public void Die()
     {
+        if (gameObject.tag == "Enemy")
+        {
+            ps.expPoints();
+        }
         Destroy(gameObject);
-        print("dead");
+        print(gameObject.name + " dead");
     }
 
 

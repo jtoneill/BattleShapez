@@ -8,15 +8,24 @@ public class PlayerCylinder : Player {
 	void Start ()
     {
 
+        Weapon weapon = gameObject.GetComponentInChildren(typeof(Weapon)) as Weapon;
+
+        if (weapon != null)
+        {
+            weapon.shooter = transform;
+        }
+
+
         anim = gameObject.GetComponentInChildren<Animator>();
         ps = GameController.FindObjectOfType<PlayerStats>();
         es = GameController.FindObjectOfType<EnemyStats>();
 
         myHealth = ps.healthCylinder;
-        
+        myAttackDamage = ps.damageCylinder;
 
-        
-        
+
+
+
     }
 	
 	// Update is called once per frame

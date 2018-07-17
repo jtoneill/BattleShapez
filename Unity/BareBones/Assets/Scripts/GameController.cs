@@ -27,6 +27,11 @@ public class GameController : MonoBehaviour
     public Text cylinderC;
     public Text pyramidC;
 
+    public Text upgradeHPText;   
+    public Text upgradeAttackText;  
+    public Text upgradeSpeedText;
+    
+
     //Currency GUI text
     public Text currencyText;
 
@@ -118,5 +123,46 @@ public class GameController : MonoBehaviour
         pyramidC.text = "$" + ps.costPyramid.ToString();
         print("PyramidStatsUpdated");
     }
+
+
+
+    //Updates the text in the pause menu depending on which button you select.
     
+
+    public void cubeUpgradeOffer()
+    {
+        upgradeHPText.text = "Current HP: " + ps.healthCube.ToString() + " += " + ps.hpMultCube + "; *1";       
+        upgradeAttackText.text = "Current AttackDamage: " + ps.damageCube.ToString() + " += " + ps.damageMultCube + "; *1";
+        upgradeSpeedText.text = "Current Speed: " + ps.speedCube.ToString() + " += " + ps.speedMultCube + "; *1";
+        
+        print("CubeStatsUpgraded/Updated");
+    }
+
+    public void sphereUpgradeOffer()
+    {
+        upgradeHPText.text = "Current HP: " + ps.healthSphere.ToString() + " += " + ps.hpMultSphere + "; *1";
+        upgradeAttackText.text = "Current AttackDamage: " + ps.damageSphere.ToString() + " += " + ps.damageMultSphere + "; *1";
+        upgradeSpeedText.text = "Current Speed: " + ps.speedSphere.ToString() + " += " + ps.speedMultSphere + "; *1";
+        
+        print("SphereStatsUpgraded/Updated");
+    }
+
+    public void cylinderUpgradeOffer()
+    {
+        upgradeHPText.text = "Current HP: " + ps.healthCylinder.ToString() + " += " + ps.hpMultCylinder + "; *1";
+        upgradeAttackText.text = "Current AttackDamage: " + ps.damageCylinder.ToString() + " += " + ps.damageMultCylinder + "; *1";
+        upgradeSpeedText.text = "Current Speed: " + ps.speedCylinder.ToString() + " += " + ps.speedMultCylinder + "; *1";
+
+        print("CylinderStatsUpgraded/Updated");
+    }
+
+    public void pyramidUpgradeOffer()
+    {
+        upgradeHPText.text = "Current HP: " + ps.healthPyramid.ToString() + " += " + ps.hpMultPyramid + "; *1";
+        upgradeAttackText.text = "Current AttackDamage: " + ps.damagePyramid.ToString() + " += " + ps.damageMultPyramid + "; *1";
+        upgradeSpeedText.text = "Current Speed: " + ps.speedPyramid.ToString() + " += " + ps.speedMultPyramid + "; *1";
+
+        print("PyramidStatsUpgraded/Updated");
+    }
+
 }
