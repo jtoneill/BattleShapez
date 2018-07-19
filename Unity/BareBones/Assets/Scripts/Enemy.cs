@@ -39,6 +39,10 @@ public class Enemy : CharacterBase
         }
         if (closestPlayer.transform.position != null && this.transform.position != null)
         {
+            if (closestPlayer.transform == null)
+            {
+                return;
+            }
             Debug.DrawLine(this.transform.position, closestPlayer.transform.position);
             mTarget = closestPlayer.transform;
         }

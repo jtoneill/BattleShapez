@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
 
     public int bank = 0;
 
-    public int levelingPoints = 2;
+    public int levelingPoints = 0;
 
     public int campaignLevel;
     public int exp;
@@ -153,9 +153,9 @@ public class PlayerStats : MonoBehaviour
 
 
     //called in the die method in characterBase only if its an enemy character
-    public void expPoints()
+    public void expPoints(int points)
     {
-        exp += 2;
+        exp += points;
         
         expInfo();
 

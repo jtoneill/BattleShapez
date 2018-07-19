@@ -23,6 +23,9 @@ public class EnemyCube : Enemy
         myHealth = es.healthCube;
         myAttackDamage = es.damageCube;
 
+        mySpeed = es.speedCube;
+        agent.speed = mySpeed;
+
 
 
 

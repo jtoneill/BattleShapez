@@ -22,7 +22,8 @@ public class PlayerPyramid : Player {
         myHealth = ps.healthPyramid;
         myAttackDamage = ps.damagePyramid;
 
-
+        mySpeed = ps.speedPyramid;
+        agent.speed = mySpeed;
 
 
 

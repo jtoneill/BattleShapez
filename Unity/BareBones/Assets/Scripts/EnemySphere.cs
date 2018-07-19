@@ -23,6 +23,9 @@ public class EnemySphere : Enemy {
         myHealth = es.healthSphere;
         myAttackDamage = es.damageSphere;
 
+        mySpeed = es.speedSphere;
+        agent.speed = mySpeed;
+
 
 
 

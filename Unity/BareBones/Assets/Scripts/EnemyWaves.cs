@@ -27,6 +27,7 @@ public class EnemyWaves : MonoBehaviour {
         ps = GameController.FindObjectOfType<PlayerStats>();
         es = GameController.FindObjectOfType<EnemyStats>();
         gc = GameController.FindObjectOfType<GameController>();
+
        
         StartCoroutine(Wave1());
     }
@@ -46,10 +47,10 @@ public class EnemyWaves : MonoBehaviour {
     }
 
 
-    void wait(int pause)
+    void wait(int pauseTime)
     {
         waitTime += Time.deltaTime;
-        if (waitTime > pause)
+        if (waitTime > pauseTime)
         {
            
             waitTime = 0;
@@ -217,11 +218,16 @@ public class EnemyWaves : MonoBehaviour {
         //Random number of cubes spawned (2-4)
         numToSpawn = Random.Range(2, 4);
         print("numToSpawnCubes: " + numToSpawn);
-        pause = numToSpawn * 3;
         //waits until there is enough funds, then buys/spawns enemy characters
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+        if(numToSpawn * es.costCube > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCube) - es.Ebank;
+
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
+        
         purchaseEnemy(0);
 
         while (gamePaused)
@@ -231,11 +237,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(2, 3);
         print("numToSpawnSpheres: " + numToSpawn);
-        pause = numToSpawn * 11;
+        if (numToSpawn * es.costSphere > es.Ebank)
+        {
+            pause = (numToSpawn * es.costSphere) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(1);
 
         randomWave();
@@ -255,11 +264,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(1, 2);
         print("numToSpawnCylinders: " + numToSpawn);
-        pause = numToSpawn * 21;
+        if (numToSpawn * es.costCylinder > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCylinder) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(2);
 
 
@@ -271,11 +283,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
-        pause = numToSpawn * 3;
+        if(numToSpawn * es.costCube > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCube) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(0);
 
 
@@ -287,11 +302,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(2, 4);
         print("numToSpawnSpheres: " + numToSpawn);
-        pause = numToSpawn * 11;
+        if (numToSpawn * es.costSphere > es.Ebank)
+        {
+            pause = (numToSpawn * es.costSphere) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(1);
 
         randomWave();
@@ -306,11 +324,14 @@ public class EnemyWaves : MonoBehaviour {
         
         numToSpawn = 1;
         print("numToSpawnPyramid: " + numToSpawn);
-        pause = numToSpawn * 42;
-        
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+        if (numToSpawn * es.costPyramid > es.Ebank)
+        {
+            pause = (numToSpawn * es.costPyramid) - es.Ebank;
+
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(3);
 
 
@@ -321,11 +342,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
-        pause = numToSpawn * 3;
+        if (numToSpawn * es.costCube > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCube) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(0);
 
 
@@ -336,11 +360,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnCubes: " + numToSpawn);
-        pause = numToSpawn * 11;
+        if (numToSpawn * es.costCube > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCube) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(0);
 
 
@@ -351,11 +378,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnSpheres: " + numToSpawn);
-        pause = numToSpawn * 11;
+        if (numToSpawn * es.costSphere > es.Ebank)
+        {
+            pause = (numToSpawn * es.costSphere) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(1);
 
         randomWave();
@@ -374,11 +404,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 5);
         print("numToSpawnCubes: " + numToSpawn);
-        pause = numToSpawn * 3;
+        if (numToSpawn * es.costCube > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCube) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(0);
 
 
@@ -398,11 +431,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(3, 4);
         print("numToSpawnSpheres: " + numToSpawn);
-        pause = numToSpawn * 11;
+        if (numToSpawn * es.costSphere > es.Ebank)
+        {
+            pause = (numToSpawn * es.costSphere) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(1);
 
 
@@ -422,11 +458,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = 1;
         print("numToSpawnPyramid: " + numToSpawn);
-        pause = numToSpawn * 41;
+        if (numToSpawn * es.costPyramid > es.Ebank)
+        {
+            pause = (numToSpawn * es.costPyramid) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(3);
 
 
@@ -446,11 +485,14 @@ public class EnemyWaves : MonoBehaviour {
 
         numToSpawn = Random.Range(1, 2); ;
         print("numToSpawnCylinder: " + numToSpawn);
-        pause = numToSpawn * 21;
+        if (numToSpawn * es.costCylinder > es.Ebank)
+        {
+            pause = (numToSpawn * es.costCylinder) - es.Ebank;
 
-        print(Time.time + " waiting for " + pause + " seconds");
-        yield return new WaitForSecondsRealtime(pause);
-        print(Time.time + " done");
+            print(Time.time + " waiting for " + pause + " seconds");
+            yield return new WaitForSecondsRealtime(pause);
+            print(Time.time + " done");
+        }
         purchaseEnemy(2);
 
 

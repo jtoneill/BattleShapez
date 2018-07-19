@@ -23,6 +23,9 @@ public class PlayerCube : Player
         myHealth = ps.healthCube;
         myAttackDamage = ps.damageCube;
 
+        mySpeed = ps.speedCube;
+        agent.speed = mySpeed;
+
 
 
 

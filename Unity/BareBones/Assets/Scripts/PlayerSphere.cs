@@ -22,7 +22,8 @@ public class PlayerSphere : Player {
         myHealth = ps.healthSphere;
         myAttackDamage = ps.damageSphere;
 
-
+        mySpeed = ps.speedSphere;
+        agent.speed = mySpeed;
 
 
     }

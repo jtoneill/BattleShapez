@@ -23,6 +23,9 @@ public class EnemyCylinder : Enemy {
         myHealth = es.healthCylinder;
         myAttackDamage = es.damageCylinder;
 
+        mySpeed = es.speedCylinder;
+        agent.speed = mySpeed;
+
 
 
 

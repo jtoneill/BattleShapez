@@ -11,6 +11,7 @@ public class CharacterBase : MonoBehaviour
     
     public int myHealth;
     public int myAttackDamage;
+    public int mySpeed;
 
     public bool touching;
 
@@ -18,6 +19,8 @@ public class CharacterBase : MonoBehaviour
 
     public PlayerStats ps;
     public EnemyStats es;
+  
+    
 
 
 
@@ -29,6 +32,8 @@ public class CharacterBase : MonoBehaviour
     void Start()
     {
        
+
+        
     }
 
 
@@ -51,6 +56,29 @@ public class CharacterBase : MonoBehaviour
 
         if (myHealth <= 0)
         {
+
+            if (gameObject.name == "OrbP")
+            {
+                print("You Lose!");
+
+                
+                Time.timeScale = 0f;
+                //figure out how to pause the enemy waves and display an win/lose menu
+
+            }
+            else if (gameObject.name == "OrbE")
+            {
+                print("You Won!");
+
+                
+                Time.timeScale = 0f;
+
+            }
+            else if (gameObject.tag == "Enemy")
+            {
+                ps.expPoints(2);
+            }
+
             Die();
 
         }
@@ -59,10 +87,8 @@ public class CharacterBase : MonoBehaviour
 
     public void Die()
     {
-        if (gameObject.tag == "Enemy")
-        {
-            ps.expPoints();
-        }
+       
+
         Destroy(gameObject);
         print(gameObject.name + " dead");
     }

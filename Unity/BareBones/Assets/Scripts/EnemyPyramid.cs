@@ -22,10 +22,13 @@ public class EnemyPyramid : Enemy {
 
         myHealth = es.healthPyramid;
         myAttackDamage = es.damagePyramid;
-        
 
-        
-        
+        mySpeed = es.speedPyramid;
+        agent.speed = mySpeed;
+
+
+
+
     }
 	
 	// Update is called once per frame

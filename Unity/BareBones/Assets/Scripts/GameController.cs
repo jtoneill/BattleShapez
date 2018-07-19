@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
         {
             ps.bank += 2;
             es.Ebank += 2;
-            currencyText.text = ps.bank.ToString();
+            currencyText.text = "$" + ps.bank.ToString();
             timer = 0;
         }
     }

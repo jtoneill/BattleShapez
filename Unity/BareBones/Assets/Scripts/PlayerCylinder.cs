@@ -20,8 +20,13 @@ public class PlayerCylinder : Player {
         ps = GameController.FindObjectOfType<PlayerStats>();
         es = GameController.FindObjectOfType<EnemyStats>();
 
+        
+
         myHealth = ps.healthCylinder;
         myAttackDamage = ps.damageCylinder;
+
+        mySpeed = ps.speedCylinder;
+        agent.speed = mySpeed;
 
 
 
